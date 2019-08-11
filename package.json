@@ -1,0 +1,11 @@
+{
+    "name": "vue-wc-01",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "vue serve",
+        "build": "vue build --target wc --name vue-wc-01",
+        "try": "serve"
+    }
+}
