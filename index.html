@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!--        <div id="app"></div>-->
+        <vue-wc-01 abc="123 lalala" onclick="clickHandler(event)"></vue-wc-01>
+
+        <script>
+            window.addEventListener('load', () => {
+                const el = document.querySelector('vue-wc-01')
+                el.test1 = { a: 42, b: 56 }
+                el.addEventListener('load', () => console.log('LOADED'))
+                el.addEventListener('input', e => console.log('input', e))
+                el.addEventListener('special-event', specialEventHandler)
+                el.addEventListener('special-click', specialEventHandler2)
+            })
+            function clickHandler() {
+                console.log('CLICK handler')
+            }
+            function specialEventHandler() {
+                console.log('Special handler')
+            }
+            function specialEventHandler2() {
+                console.log('Special handler 2')
+            }
+        </script>
+    </body>
+</html>
