@@ -6,11 +6,23 @@
     "scripts": {
         "start": "vue serve ./src/index.js",
         "build": "vue build ./src/index.js",
-        "build-wc": "vue build ./src/wc.js --target wc --name vue-wc-01",
+        "build-wc": "vue build ./src/App.vue --target wc --name vue-wc-01",
         "test-wc": "cd dist && serve"
     },
     "dependencies": {
+        "@mdi/font": "^4.0.96",
         "@vue/web-component-wrapper": "^1.2.0",
-        "vue-function-api": "^2.1.2"
+        "material-icons": "^0.3.1",
+        "roboto-fontface-woff": "^0.8.0",
+        "vue": "^2.6.10",
+        "vue-function-api": "^2.1.2",
+        "vuetify": "^2.0.7"
+    },
+    "devDependencies": {
+        "@vue/cli-service": "^3.10.0",
+        "css-loader": "^3.2.0",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.2.0",
+        "vue-template-compiler": "^2.6.10"
     }
 }
