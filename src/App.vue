@@ -3,32 +3,94 @@
         @input.stop="$emit('input', 'test')"
         @click="$emit('special-click', 'special data here')"
     >
-        <h1>Vue Web Component</h1>
-        <pre>abc: {{ abc }}</pre>
-        <Renderless v-slot="props">hello default slot: {{ props }}</Renderless>
-        <hr />
-        <form @submit.prevent="addText">
-            <label>
-                Name
-                <input v-model="text" />
-            </label>
-        </form>
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+            rel="stylesheet"
+        />
+        <!--
+        -->
+        <v-app>
+            <v-content>
+                <v-container>
+                    <v-card>
+                        <v-card-title>
+                            Vue Todos - Web Component
+                        </v-card-title>
 
-        <p v-for="item in texts" :key="item.id">
-            {{ item }}
-            <button @click="removeItem(item)">delete</button>
-        </p>
+                        <v-card-text>
+                            <pre>abc: {{ abc }}</pre>
+                            <Renderless v-slot="props"
+                                >Renderless data: {{ props }}</Renderless
+                            >
+                            <hr />
+                        </v-card-text>
+
+                        <v-card-text>
+                            <form @submit.prevent="addText">
+                                <v-text-field
+                                    autofocus
+                                    label="Task title"
+                                    v-model="text"
+                                />
+                            </form>
+
+                            <p
+                                v-for="item in texts"
+                                :key="item.id"
+                                class="d-flex"
+                            >
+                                <span class="grow">{{ item }}</span>
+                                <v-btn @click="removeItem(item)" small icon
+                                    ><v-icon small color="red"
+                                        >mdi-delete</v-icon
+                                    ></v-btn
+                                >
+                            </p>
+                        </v-card-text>
+                    </v-card>
+                </v-container>
+            </v-content>
+        </v-app>
     </div>
 </template>
 
+<style lang="sass" scoped>
+@import '../node_modules/vuetify/dist/vuetify.min.css'
+@import '../node_modules/@mdi/font/css/materialdesignicons.min.css'
+@import '../node_modules/roboto-fontface-woff/css/roboto/roboto-fontface.css'
+</style>
+
 <script>
+// import 'vuetify/dist/vuetify.min.css'
+// import '@mdi/font/css/materialdesignicons.min.css'
+// import 'roboto-fontface-woff/css/roboto/roboto-fontface.css'
+
+import Vuetify from 'vuetify'
+import Vue from 'vue'
+
 import Renderless from './Renderless.vue'
+
+Vue.use(Vuetify)
 
 export default {
     props: {
         abc: String
     },
     components: { Renderless },
+
+    vuetify: new Vuetify({
+        // icons: {
+        //     iconfont: 'mdi'
+        // }
+    }),
 
     data() {
         return {
@@ -42,7 +104,7 @@ export default {
     },
 
     mounted() {
-        console.log('MOUNTED:', this.$el.test1, this.abc, this)
+        //console.log('MOUNTED:', this.$el.test1, this.abc, this)
 
         window.addEventListener('load', () => {
             this.$emit('load')
