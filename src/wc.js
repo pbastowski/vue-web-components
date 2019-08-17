@@ -1,7 +1,4 @@
-import Vue from 'vue'
-// import { plugin } from 'vue-function-api'
-import App from './App.vue'
 
-// Vue.use(plugin)
+import App from './App.vue'
 
 export default App
