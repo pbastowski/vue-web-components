@@ -1,17 +1,18 @@
 import Vue from 'vue'
-import wrap from '@vue/web-component-wrapper'
-import { plugin } from 'vue-function-api'
+
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
 import App from './App.vue'
 
-Vue.use(plugin)
-
 // new Vue({
-//     render: h => h(App)
-// }).$mount('#app')
+//     render: h => h(App),
+//     propsData: {
+//         abc: 'tra lala'
+//     }
+// }).$mount('vue-wc-01')
 
-window.customElements.define('vue-wc-01', wrap(Vue, App))
-
-export default App
+window.customElements.define(
+    'vue-wc-01',
+    require('@vue/web-component-wrapper').default(Vue, App)
+)
